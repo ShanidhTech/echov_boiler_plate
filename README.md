@@ -44,5 +44,22 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --env-file .env
 ```
 
+
+## 🚀 Database Migration
+
+1. **Start by initializing Alembic:**
+
+```bash
+alembic init alembic
+```   
+
+2. **Create and run the database migrations:**
+
+```bash
+alembic revision --autogenerate -m "<migration message>"
+alembic upgrade head
+```
+
+
 **By default, this runs the app at: http://127.0.0.1:8000**
 
