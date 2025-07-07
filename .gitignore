@@ -1,5 +1,5 @@
 *.pyc
 .idea/
-migrations/versions/*
+app/alembic/versions/*
 venv/
 .env
