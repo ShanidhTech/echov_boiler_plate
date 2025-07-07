@@ -41,7 +41,7 @@ pip install -r requirements.txt
 **To run the FastAPI app in development mode:**
 
 ```bash
-uvicorn backend.app.main:app --reload --env-file .env
+uvicorn app.main:app --reload --env-file .env
 ```
 
 **By default, this runs the app at: http://127.0.0.1:8000**
