@@ -1,3 +1,4 @@
+# Called from FastAPI to send messages
 import json
 from .config import get_kafka_producer
 

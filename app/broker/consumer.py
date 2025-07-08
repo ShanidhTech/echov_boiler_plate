@@ -1,3 +1,4 @@
+# Subscribes to Kafka or RabbitMQ topics
 import json
 from .config import get_kafka_consumer
 
