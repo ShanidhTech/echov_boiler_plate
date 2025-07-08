@@ -44,6 +44,17 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --env-file .env
 ```
 
+**Start gRPC Server:**
+
+```bash
+python app/grpc/grpc_server.py
+```
+
+**Start Consumer Worker:**
+
+```bash
+python app/workers/event_worker.py
+```
 
 ## 🚀 Database Migration
 
@@ -60,6 +71,62 @@ alembic revision --autogenerate -m "<migration message>"
 alembic upgrade head
 ```
 
+## 🧱 gRPC Compilation
+
+**Compile proto files:**
+
+```bash
+python -m grpc_tools.protoc \
+  -I app/grpc/proto \
+  --python_out=app/grpc/generated \
+  --grpc_python_out=app/grpc/generated \
+  app/grpc/proto/auth.proto
+```
+
+## 📤 Kafka/RabbitMQ Integration
+
+**Publish an event (example):**
+
+```bash
+from app.broker.producer import publish_event
+
+publish_event("user.created", {"user_id": "123", "email": "demo@site.com"})
+```
+
+**Consume using:**
+
+```bash
+python app/workers/event_worker.py
+```
+
+
+## 📦 Docker
+
+**Build Image**
+
+```bash
+docker build -t auth-service .
+```
+
+**Run Container**
+
+```bash
+docker run -p 8000:8000 auth-service
+```
+
+## 📚 API Documentation
+
+**Visit:**
+
+```bash
+http://localhost:8000/docs
+```
+
+**or**
+
+```bash
+http://localhost:8000/redoc
+```
 
 **By default, this runs the app at: http://127.0.0.1:8000**
 
