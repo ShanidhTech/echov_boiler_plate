@@ -6,6 +6,7 @@ from decouple import config
 # if some validation is needed add it into utility/common_impl
 class Settings:
     PROJECT_NAME: str = config("PROJECT_NAME")
+    DATABASE_URL: str = config("DATABASE_URL")
     API_V1_STR: str = "/api/v1"
     def __init__(self):
         pass
